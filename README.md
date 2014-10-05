@@ -1,0 +1,4 @@
+GrooveSync
+==========
+
+Grooveshark collection synchronization
