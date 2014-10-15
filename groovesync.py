@@ -447,21 +447,18 @@ class GrooveSync:
         current_size = len(rh)
         total_size = int(re.sub('.* Content-Length: ([0-9]+) .*', r'\1', rh.replace('\r', '').replace('\n', ' ')))
 
-        print('')
         while True:
             r = sock.recv(4096)
             current_size += len(r)
             if r:
                 f.write(r)
-                print('\x1b[1ADownloading file...'),
+                print('\rDownloading file...'),
                 print(str(int(current_size / float(total_size) * 100)) + '%'),
-                print('\n')
             else:
                 break
-            print('\x1b[1A\x1b[2K\x1b[1A')
         f.close()
 
-        print('Done!'),
+        print('- Done!'),
         print(' '*100)
         self.markSongDownloadedEx(stream["ip"], currentSong["SongID"], stream["streamKey"]) #This is the important part, hopefully this will stop grooveshark from banning us.
 
