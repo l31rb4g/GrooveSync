@@ -472,6 +472,6 @@ if __name__ == "__main__":
 
     GrooveSync()
 
-    if os.uname()[0] != 'Linux':
+    if 'uname' not in dir(os):
         print('Type ENTER to exit')
         raw_input()
