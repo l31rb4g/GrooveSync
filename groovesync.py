@@ -471,3 +471,7 @@ class GrooveSync:
 if __name__ == "__main__":
 
     GrooveSync()
+
+    if os.uname()[0] != 'Linux':
+        print('Type ENTER to exit')
+        raw_input()
