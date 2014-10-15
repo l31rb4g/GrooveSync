@@ -456,9 +456,9 @@ class GrooveSync:
                 print('\x1b[1ADownloading file...'),
                 print(str(int(current_size / float(total_size) * 100)) + '%'),
                 print('\n')
-                print('\x1b[1A\x1b[2K\x1b[1A')
             else:
                 break
+            print('\x1b[1A\x1b[2K\x1b[1A')
         f.close()
 
         print('Done!'),
