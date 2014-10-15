@@ -104,6 +104,7 @@ class GrooveSync:
             current_dir = os.path.abspath(os.path.curdir) + '/' + self.username
             print('Please type a directory to store the MP3 files [' + current_dir + ']:'),
             self.download_directory = raw_input()
+            print('')
             if not self.download_directory.strip():
                 if not os.path.exists(current_dir):
                     os.mkdir(current_dir)
