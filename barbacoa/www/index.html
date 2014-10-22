@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/mootools/1.5.1/mootools-yui-compressed.js"></script>
+</head>
+<body>
+
+<h2>GrooveSync</h2>
+<br/>
+
+<div id="main">
+    <div id="menu">
+        <label>Username:<br/><input type="text" id="username"/></label><br/><br/>
+        <label>Diretório:<br/><span id="directory"></span> <input type="button" id="btnSearchDirectory" value="Procurar..."/></label>
+        <br/>
+        <input type="button" id="ok" value="OK"/>
+    </div>
+    <div id="content">
+
+    </div>
+</div>
+
+<script type="text/javascript">
+BarbacoaReady = function(){
+
+    var path = Barbacoa.Environment.get_user_home();
+    $('directory').set('text', path);
+
+    $('btnSearchDirectory').addEvent('click', function(){
+        var path = $('directory').get('text');
+        var new_path = Barbacoa.File.choose_directory(path);
+        if (new_path) $('directory').set('text', new_path);
+    });
+
+    $('ok').addEvent('click', function(){
+        var user_data = Barbacoa.plugins.groovesync.getUserData($('username').get('value'));
+        if (user_data) {
+            alert(user_data);
+        } else {
+            alert('Usuário não encontrado');
+        }
+    });
+
+};
+</script>
+
+</body>
+</html>
